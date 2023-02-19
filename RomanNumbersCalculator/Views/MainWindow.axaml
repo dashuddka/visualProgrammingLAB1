@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:RomanCalc.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="350"
+		Height="350" Width="400"
+        x:Class="RomanCalc.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="RomanCalc">
+	<Grid ShowGridLines="False">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="25*"></RowDefinition>
+			<RowDefinition Height="25*"></RowDefinition>
+			<RowDefinition Height="25*"></RowDefinition>
+			<RowDefinition Height="25*"></RowDefinition>
+			<RowDefinition Height="25*"></RowDefinition>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="25*"></ColumnDefinition>
+			<ColumnDefinition Width="25*"></ColumnDefinition>
+			<ColumnDefinition Width="25*"></ColumnDefinition>
+			<ColumnDefinition Width="25*"></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<TextBox TextAlignment="Left" Text="{Binding ShowValue}" Name="Show" Height="75" Width="400" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" FontSize="35" BorderBrush="Black" BorderThickness="4"></TextBox>
+		<Button Command="{Binding AddNum}" CommandParameter="I" Name="I" Height="75" Width="100" Grid.Column="0" Grid.Row="1" FontSize="35" Background="HotPink" BorderBrush="Black" BorderThickness="2">I</Button>
+		<Button Command="{Binding AddNum}" CommandParameter="C" Name="C" Height="75" Width="100" Grid.Column="1" Grid.Row="1" FontSize="35" Background="HotPink" BorderBrush="Black" BorderThickness="2">C</Button>
+		<Button Command="{Binding ExecuteOperationCommand}" CommandParameter="+" Name="Add" Height="75" Width="100" Grid.Column="2" Grid.Row="1" FontSize="35" Background="HotPink" BorderBrush="Black" BorderThickness="2">+</Button>
+		<Button Command="{Binding AddNum}" CommandParameter="V" Name="V" Height="75" Width="100" Grid.Column="0" Grid.Row="2" FontSize="35" Background="HotPink" BorderBrush="Black" BorderThickness="2">V</Button>
+		<Button Command="{Binding AddNum}" CommandParameter="D" Name="D" Height="75" Width="100" Grid.Column="1" Grid.Row="2" FontSize="35" Background="HotPink" BorderBrush="Black" BorderThickness="2">D</Button>
+		<Button Command="{Binding ExecuteOperationCommand}" CommandParameter="-" Name="Sub" Height="75" Width="100" Grid.Column="2" Grid.Row="2" FontSize="35" Background="HotPink" BorderBrush="Black" BorderThickness="2">-</Button>
+		<Button Command="{Binding AddNum}" CommandParameter="X" Name="X" Height="75" Width="100" Grid.Column="0" Grid.Row="3" FontSize="35" Background="HotPink" BorderBrush="Black" BorderThickness="2">X</Button>
+		<Button Command="{Binding AddNum}" CommandParameter="M" Name="M" Height="75" Width="100" Grid.Column="1" Grid.Row="3" FontSize="35" Background="HotPink" BorderBrush="Black" BorderThickness="2">M</Button>
+		<Button Command="{Binding ExecuteOperationCommand}" CommandParameter="*" Name="Mul" Height="75" Width="100" Grid.Column="2" Grid.Row="3" FontSize="35" Background="HotPink" BorderBrush="Black" BorderThickness="2">*</Button>
+		<Button Command="{Binding AddNum}" CommandParameter="L" Name="L" Height="75" Width="100" Grid.Column="0" Grid.Row="4" FontSize="35" Background="HotPink" BorderBrush="Black" BorderThickness="2">L</Button>
+		<Button Command="{Binding Clear}" CommandParameter="CE"  Name="clear" Height="75" Width="100" Grid.Column="1" Grid.Row="4" FontSize="35" Background="HotPink" BorderBrush="Black" BorderThickness="2">CE</Button>
+		<Button Command="{Binding ExecuteOperationCommand}" CommandParameter="/" Name="Div" Height="75" Width="100" Grid.Column="2" Grid.Row="4" FontSize="35" Background="HotPink" BorderBrush="Black" BorderThickness="2">/</Button>
+		<Button Command="{Binding ExecuteOperationCommand}" CommandParameter="=" Name="result" Height="280" Width="100" Grid.Column="3" Grid.Row="2" Grid.RowSpan="2" FontSize="35" Background="LightBlue" BorderBrush="Black" BorderThickness="2">=</Button>
+		</Grid>
+		<Window.Styles>
+			<Style Selector="Button">
+				<Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+				<Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+			</Style>
+		</Window.Styles>
+		<Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>   
+</Window>
